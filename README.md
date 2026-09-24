@@ -2,6 +2,7 @@ Flashcard Study App (Ứng Dụng Ôn Tập Flashcard)
 
 Ứng dụng web ôn tập flashcard đơn giản, thân thiện và hiện đại. Người dùng có thể dễ dàng tải lên các file định dạng .txt chứa bộ câu hỏi để bắt đầu học và ghi nhớ kiến thức nhanh chóng.
 
+
 🚀 Tính năng nổi bật
 
 Tải bộ câu hỏi từ file TXT: Tự động lấy tên file làm tiêu đề bài học.
@@ -15,6 +16,7 @@ Hiệu ứng lật thẻ (Fade & Color Transition): Hiệu ứng làm mờ mịn
 Thanh tiến trình (Progress Bar): Theo dõi trực quan tỉ lệ hoàn thành bài học.
 
 Giao diện Responsive: Tối ưu hóa trên cả máy tính và thiết bị di động.
+
 
 📝 Định dạng File .txt Đầu Vào
 
