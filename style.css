@@ -1,0 +1,319 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================================================================
+   APP CONTAINER
+   ========================================================================== */
+.app {
+    width: 100%;
+    max-width: 768px;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   UPLOAD SCREEN (Màn hình tải file)
+   ========================================================================== */
+.app__upload-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.upload-box {
+    background-color: #ffffff;
+    border: 2px dashed #2563eb;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.upload-box:hover {
+    border-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.upload-box__icon {
+    font-size: 56px;
+    color: #2563eb;
+    margin-bottom: 16px;
+}
+
+.upload-box__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1e3a8a;
+}
+
+.upload-box__description {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.upload-box__input {
+    display: none;
+}
+
+/* ==========================================================================
+   STUDY SCREEN (Màn hình ôn tập)
+   ========================================================================== */
+.app__study-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.app__study-screen--hidden {
+    display: none !important;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.header__title {
+    font-size: 20px;
+    color: #1e3a8a;
+    word-break: break-word;
+}
+
+.header__filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__filter-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.header__filter-select {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+    cursor: pointer;
+}
+
+.header__filter-select:focus {
+    border-color: #2563eb;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar__fill {
+    height: 100%;
+    width: 0%;
+    background-color: #2563eb;
+    transition: width 0.3s ease;
+}
+
+/* Flashcard Container & Effect */
+.card-container {
+    perspective: 1000px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.card {
+    background-color: #ffffff; /* Màu nền trắng mặc định cho mặt CÂU HỎI */
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    min-height: 280px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: opacity 0.25s ease-in-out, transform 0.2s ease, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+/* Class đổi sang BGC màu xanh biển dịu mắt khi lật sang mặt ĐÁP ÁN */
+.card--answer-active {
+    background-color: #ebf5ff; /* Xanh biển nhạt dịu mắt */
+    border-color: #93c5fd;     /* Viền xanh biển nhạt */
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card--fade-out {
+    opacity: 0;
+}
+
+.card__content {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #1e293b;
+    width: 100%;
+}
+
+.card__content--answer {
+    color: #1e40af; /* Chữ xanh biển đậm dễ đọc */
+    font-weight: 600;
+}
+
+.card__content--hidden {
+    display: none;
+}
+
+.card__hint {
+    position: absolute;
+    bottom: 12px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Counter */
+.counter {
+    text-align: center;
+    font-weight: 600;
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* Controls Header & Buttons */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn--primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn--secondary {
+    background-color: #dbeafe;
+    color: #1e40af;
+    flex: 1;
+}
+
+.btn--secondary:hover:not(:disabled) {
+    background-color: #bfdbfe;
+}
+
+.btn--outline {
+    background-color: transparent;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+}
+
+.btn--outline:hover {
+    background-color: #e2e8f0;
+}
+
+.btn--text {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 13px;
+    text-decoration: underline;
+    margin: 0 auto;
+    display: block;
+}
+
+.btn--text:hover {
+    color: #1e293b;
+}
+
+.app__change-file {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Responsive UI */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card__content {
+        font-size: 17px;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+}

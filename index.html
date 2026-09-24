@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Flashcard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome icon cho nút và giao diện -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app">
+        <!-- Màn hình tải file (Ban đầu hiển thị ở giữa) -->
+        <section class="app__upload-screen" id="uploadScreen">
+            <div class="upload-box">
+                <i class="fa-solid fa-file-arrow-up upload-box__icon"></i>
+                <h1 class="upload-box__title">Ôn Tập Flashcard</h1>
+                <p class="upload-box__description">Tải lên file câu hỏi (.txt) để bắt đầu học</p>
+                <label for="fileInput" class="btn btn--primary upload-box__button">
+                    <i class="fa-solid fa-folder-open"></i> Chọn file TXT
+                </label>
+                <input type="file" id="fileInput" accept=".txt" class="upload-box__input">
+            </div>
+        </section>
+
+        <!-- Màn hình học Flashcard (Ẩn mặc định) -->
+        <main class="app__study-screen app__study-screen--hidden" id="studyScreen">
+            
+            <!-- Header tiêu đề bài học và lọc chương -->
+            <header class="header">
+                <h2 class="header__title" id="setTitle">Tên bộ câu hỏi</h2>
+                <div class="header__filter">
+                    <label for="chapterSelect" class="header__filter-label">Chương:</label>
+                    <select id="chapterSelect" class="select header__filter-select">
+                        <option value="all">Tất cả các chương</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Thanh tiến trình học -->
+            <div class="progress-bar">
+                <div class="progress-bar__fill" id="progressFill"></div>
+            </div>
+
+            <!-- Khu vực Flashcard -->
+            <div class="card-container">
+                <div class="card" id="flashcard">
+                    <div class="card__content card__content--question" id="cardQuestion">
+                        Nội dung câu hỏi
+                    </div>
+                    <div class="card__content card__content--answer card__content--hidden" id="cardAnswer">
+                        Nội dung đáp án
+                    </div>
+                    <span class="card__hint">
+                        <i class="fa-solid fa-rotate"></i> Nhấn vào thẻ để xem đáp án
+                    </span>
+                </div>
+            </div>
+
+            <!-- Chỉ số câu hỏi hiện tại -->
+            <div class="counter" id="cardCounter">
+                Câu 0 / 0
+            </div>
+
+            <!-- Thanh công cụ chứa các nút điều hướng -->
+            <footer class="controls">
+                <button class="btn btn--secondary" id="prevBtn" title="Câu trước">
+                    <i class="fa-solid fa-arrow-left"></i> Câu trước
+                </button>
+                <button class="btn btn--outline" id="restartBtn" title="Làm lại từ đầu">
+                    <i class="fa-solid fa-rotate-right"></i> Làm lại
+                </button>
+                <button class="btn btn--secondary" id="nextBtn" title="Câu tiếp theo">
+                    Câu tiếp <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </footer>
+
+            <!-- Nút đổi bộ câu hỏi khác -->
+            <div class="app__change-file">
+                <button class="btn btn--text" id="changeFileBtn">
+                    <i class="fa-solid fa-file-import"></i> Tải bộ câu hỏi khác
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
